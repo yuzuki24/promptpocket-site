@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プロンプトポケット | ChatGPT・Claude・Gemini のプロンプトを保存して一発で呼び出す</title>
+<meta name="description" content="プロンプトポケットは、ChatGPT・Claude・Gemini で使うプロンプトを保存し、ワンクリックや /ショートカットで入力欄に呼び出せる Chrome 拡張機能です。">
+<style>
+  :root { --bg:#fbfbfe; --card:#fff; --fg:#171826; --fg2:#5b5e73; --line:#e6e7ef; --accent:#6d4cff; --accent2:#5b3be0; --soft:#efeaff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#101117; --card:#16171e; --fg:#ecedf5; --fg2:#a6a9bf; --line:#2a2b38; --accent:#8b6dff; --accent2:#9d84ff; --soft:#2c2452; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.7; }
+  a { color: var(--accent); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; text-decoration: none; color: var(--fg); }
+  .logo { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, var(--accent), #b98cff); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; }
+  nav a { margin-left: 18px; color: var(--fg2); text-decoration: none; font-size: 14px; }
+  .hero { padding: 56px 0 40px; text-align: center; }
+  .hero h1 { font-size: 34px; line-height: 1.35; margin: 0 0 14px; letter-spacing: .01em; }
+  .hero p { font-size: 17px; color: var(--fg2); max-width: 640px; margin: 0 auto 26px; }
+  .btn { display: inline-block; padding: 13px 24px; border-radius: 12px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; }
+  .btn:hover { background: var(--accent2); }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); margin-left: 10px; }
+  .note { font-size: 13px; color: var(--fg2); margin-top: 12px; }
+  .demo { margin: 36px auto 0; max-width: 760px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); padding: 18px; text-align: left; font-size: 14px; box-shadow: 0 12px 40px rgba(40,30,120,.08); }
+  .demo .line { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .demo .line:last-child { border-bottom: none; }
+  kbd { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; background: var(--soft); color: var(--accent2); padding: 2px 7px; border-radius: 6px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 48px 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; }
+  .card p { margin: 0; color: var(--fg2); font-size: 14px; }
+  .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 56px; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .plan.pro { border-color: var(--accent); box-shadow: 0 0 0 4px var(--soft); }
+  .plan h3 { margin: 0; font-size: 18px; }
+  .price { font-size: 30px; font-weight: 800; margin: 8px 0 4px; }
+  .price small { font-size: 14px; font-weight: 500; color: var(--fg2); }
+  .plan ul { padding-left: 18px; color: var(--fg2); font-size: 14px; margin: 14px 0 0; }
+  h2 { font-size: 24px; margin: 0 0 6px; text-align: center; }
+  .sub { text-align: center; color: var(--fg2); margin: 0 0 22px; }
+  .faq details { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq p { color: var(--fg2); margin: 8px 0 0; font-size: 14px; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--fg2); font-size: 13px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./"><span class="logo">✎</span>プロンプトポケット</a>
+    <nav><a href="#features">機能</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a><a href="privacy.html">プライバシー</a></nav>
+  </header>
+
+  <section class="hero">
+    <h1>ChatGPT・Claude・Gemini のプロンプトを<br>保存して、一発で呼び出す。</h1>
+    <p>よく使う指示文をフォルダで整理。入力欄で <kbd>/mail</kbd> と打つだけで展開。穴埋め変数、テンプレート集、右クリック保存まで。AIを毎日使う人のための Chrome 拡張機能です。</p>
+    <a class="btn" id="install" href="#install">Chrome に追加(無料)</a>
+    <a class="btn ghost" href="#pricing">料金を見る</a>
+    <div class="note">Chrome ウェブストアで公開準備中です。公開後にこのボタンからインストールできます。</div>
+
+    <div class="demo" aria-label="使い方の例">
+      <div class="line"><kbd>/mail</kbd><span>→ 「以下の文章を、社外向けの丁寧なビジネスメールに書き直してください…」が即座に展開</span></div>
+      <div class="line"><kbd>//</kbd><span>→ 入力欄からプロンプト一覧を開く。↑↓ と Enter だけで挿入</span></div>
+      <div class="line"><kbd>{{文章}}</kbd><span>→ 穴埋め変数。挿入前にフォームが出て、完成形をプレビュー</span></div>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>機能</h2>
+    <p class="sub">外部サーバーには一切送信しません。データはブラウザの中だけに保存されます。</p>
+    <div class="grid">
+      <div class="card"><h3>3つのAIで同じプロンプト</h3><p>ChatGPT、Claude、Gemini のどのページでも同じ一覧が使えます。右下の ✎ ボタン、または Alt+Shift+P。</p></div>
+      <div class="card"><h3>/ショートカットで即展開</h3><p>プロンプトに短い名前を付けておけば、入力欄で「/名前」+スペースと打つだけで本文に置き換わります。</p></div>
+      <div class="card"><h3>穴埋め変数と自動変数</h3><p>{{変数}} で穴埋め、{{日付}} {{クリップボード}} {{選択テキスト}} は挿入時に自動で埋まります。</p></div>
+      <div class="card"><h3>日本語テンプレート集</h3><p>ビジネス、ライティング、学習、プログラミングなど26種のテンプレートをワンクリックで追加。</p></div>
+      <div class="card"><h3>どこからでも保存</h3><p>入力欄に書いた文章をそのまま保存。Webページ上の文章は右クリックからプロンプトに。</p></div>
+      <div class="card"><h3>フォルダ・お気に入り・検索</h3><p>フォルダ分け、★お気に入り、最近使った順、使用回数。増えても迷いません。</p></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>料金</h2>
+    <p class="sub">まずは無料で。気に入ったら買い切りで、ずっと使えます。</p>
+    <div class="pricing">
+      <div class="plan">
+        <h3>無料版</h3>
+        <div class="price">0円</div>
+        <ul>
+          <li>プロンプト保存 10件まで</li>
+          <li>/ショートカット、変数、テンプレート集</li>
+          <li>フォルダ、お気に入り、検索</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro版</h3>
+        <div class="price">980円 <small>税込・買い切り・月額なし</small></div>
+        <ul>
+          <li>プロンプト保存 無制限</li>
+          <li>JSON エクスポート / インポート(バックアップ、別PCへの移行)</li>
+          <li>今後追加される Pro 機能もそのまま利用可</li>
+        </ul>
+        <p style="font-size:13px;color:var(--fg2);margin:14px 0 0">拡張の設定画面から購入できます。決済は ExtensionPay(Stripe)で処理され、カード情報が当方に渡ることはありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>よくある質問</h2>
+    <p class="sub"></p>
+    <details><summary>プロンプトの内容はどこに保存されますか?</summary><p>お使いの Chrome の中(拡張機能のローカルストレージ)にだけ保存されます。当方のサーバーには送信されません。</p></details>
+    <details><summary>購入後に別のパソコンでも使えますか?</summary><p>使えます。設定画面の「購入済みの方はこちら」から、購入時のメールアドレスでログインすると Pro が復元されます。プロンプト自体は JSON エクスポート/インポートで移行してください。</p></details>
+    <details><summary>返金はできますか?</summary><p>購入から14日以内で、不具合により正常に利用できない場合は返金に応じます。下記の連絡先までご連絡ください。</p></details>
+    <details><summary>対応サイトを増やす予定はありますか?</summary><p>あります。要望は連絡先までお寄せください。</p></details>
+  </section>
+
+  <footer>
+    <div>© 2026 プロンプトポケット</div>
+    <div><a href="privacy.html">プライバシーポリシー</a> ・ <a href="tokushoho.html">特定商取引法に基づく表記</a> ・ お問い合わせ: <a href="mailto:saisproduction01@gmail.com">saisproduction01@gmail.com</a></div>
+  </footer>
+</div>
+</body>
+</html>
