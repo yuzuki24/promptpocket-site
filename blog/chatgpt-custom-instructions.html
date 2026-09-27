@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPTのカスタム指示の書き方と限界|「全部に効く」からこそ書けないこと | プロンプトポケット</title>
+<meta name="description" content="ChatGPTのカスタム指示(Custom Instructions)に何を書くべきか、書かない方がいいことは何か。効果的なテンプレートと、用途ごとの指示をどう管理するかを解説します。">
+<meta name="keywords" content="
+  &lt;p&gt;ChatGPTの「カスタム指示」は、すべてのチャットに自動で適用される前提文です。うまく使えば毎回同じことを書かずに済みますが、「すべてに効く」という性質のせいで、書けないことも多い機能です。この記事では、書くべきこと、書かない方がいいこと、そして用途ごとの指示をどこに置くかを整理します。&lt;/p&gt;
+  &lt;div class=&quot;toc&quot;&gt;この記事の内容&lt;ol&gt;&lt;li&gt;カスタム指示とは&lt;/li&gt;&lt;li&gt;書くべきこと(3つ)&lt;/li&gt;&lt;li&gt;書かない方がいいこと(3つ)&lt;/li&gt;&lt;li&gt;コピペで使えるテンプレート&lt;/li&gt;&lt;li&gt;用途ごとの指示はどこに置くか&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+  &lt;h2&gt;カスタム指示とは&lt;/h2&gt;
+  &lt;p&gt;設定 → パーソナライズ → カスタム指示 から設定できる2つの欄です。「ChatGPTにあなたについて知っておいてほしいこと」と「どのように応答してほしいか」を書くと、新しいチャットのたびに裏側でシステムプロンプトとして渡されます。&lt;/p&gt;
+
+  &lt;h2&gt;書くべきこと&lt;/h2&gt;
+  &lt;h3&gt;1. あなたの前提&lt;/h3&gt;
+  &lt;p&gt;職種、使う言語、よく扱う分野。「Webエンジニア。主にTypeScriptとReact。日本語で回答」程度で十分です。これだけで「初心者向けの説明」や「Python前提のコード」が減ります。&lt;/p&gt;
+  &lt;h3&gt;2. 回答の形式の好み&lt;/h3&gt;
+  &lt;p&gt;「結論を先に」「箇条書きは3つまで」「コードには必ずコメント」など。毎回の指示で書くのが面倒で、かつ例外がほぼないものを置きます。&lt;/p&gt;
+  &lt;h3&gt;3. やめてほしいこと&lt;/h3&gt;
+  &lt;p&gt;「冒頭の相づちは不要」「最後にまとめを繰り返さない」「わからないときは推測せずにそう言う」。これらはすべてのチャットで効いてほしい典型です。&lt;/p&gt;
+
+  &lt;h2&gt;書かない方がいいこと&lt;/h2&gt;
+  &lt;h3&gt;1. 用途が限られる指示&lt;/h3&gt;
+  &lt;p&gt;「メールは敬語で」「コードレビューはバグを優先」のような指示は、雑談や翻訳のチャットにも効いてしまい、回答が不自然になります。用途が限られる指示は、必要なときだけ渡すべきです。&lt;/p&gt;
+  &lt;h3&gt;2. 長い文脈やデータ&lt;/h3&gt;
+  &lt;p&gt;カスタム指示は文字数制限があり、毎回トークンを消費します。会社の用語集や大量の背景情報は、チャットの中で必要なときに渡す方が精度も費用も良くなります。&lt;/p&gt;
+  &lt;h3&gt;3. 相反する指示&lt;/h3&gt;
+  &lt;p&gt;「簡潔に」と「詳しく」を両方書くと、どちらも中途半端になります。迷ったら「短め」を基本にし、詳しく欲しいときだけチャットで頼む方が扱いやすいです。&lt;/p&gt;
+
+  &lt;h2&gt;コピペで使えるテンプレート&lt;/h2&gt;
+  &lt;pre&gt;&lt;code&gt;【あなたについて】
+{{職種}}。主に{{よく扱う分野・言語}}を扱う。日本語で会話する。
+
+【応答の形式】
+・結論を先に書く
+・箇条書きは3つまで。詳しく必要なときはこちらから頼む
+・コードを書くときは、変更点にだけコメントを付ける
+・冒頭の相づちや、最後のまとめの繰り返しは不要
+・確信がないときは「確信がない」と明記する&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;用途ごとの指示はどこに置くか&lt;/h2&gt;
+  &lt;p&gt;カスタム指示に入れられないのは「用途ごとに切り替えたい指示」です。これは別の場所で管理する必要があります。&lt;/p&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;置き場所&lt;/th&gt;&lt;th&gt;向いている用途&lt;/th&gt;&lt;th&gt;弱点&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;GPTs(マイGPT)&lt;/td&gt;&lt;td&gt;役割が固定された作業(校正専用など)&lt;/td&gt;&lt;td&gt;有料。会話の途中で切り替えられない&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;メモ帳からコピペ&lt;/td&gt;&lt;td&gt;とりあえず&lt;/td&gt;&lt;td&gt;毎回20秒。件数が増えると探せない&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;プロンプト管理の拡張&lt;/td&gt;&lt;td&gt;1つの会話の中で「ここはメール文」「ここは要約」と切り替える&lt;/td&gt;&lt;td&gt;Chrome限定&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;p&gt;1つの会話の中で用途を切り替える使い方なら、&lt;a href=&quot;../&quot;&gt;プロンプトポケット&lt;/a&gt; のような拡張で「/mail」「/sum」のように呼び出す形が一番速いです。カスタム指示には「全チャット共通の前提」だけを置き、用途ごとの指示は拡張側に持たせる、という分担にすると両方が生きます。&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../img/screenshot-1-list.png&quot; alt=&quot;ChatGPT上に表示されたプロンプト一覧&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-custom-instructions.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPTのカスタム指示の書き方と限界|「全部に効く」からこそ書けないこと">
+<meta property="og:description" content="ChatGPTのカスタム指示(Custom Instructions)に何を書くべきか、書かない方がいいことは何か。効果的なテンプレートと、用途ごとの指示をどう管理するかを解説します。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-custom-instructions.html">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="../"><span class="logo">✎</span>プロンプトポケット</a><a href="./" style="font-size:14px">記事一覧</a></header>
+  <article>
+  <h1>ChatGPTのカスタム指示の書き方と限界|「全部に効く」からこそ書けないこと</h1>
+  <div class="meta">公開日: 2026-09-28</div>
+ChatGPT カスタム指示, カスタム指示 書き方, カスタム指示 例, ChatGPT 設定
+  <div class="cta">
+    <h3>プロンプトの保存と呼び出しを一発にする</h3>
+    <p>プロンプトポケットは、ChatGPT・Claude・Gemini の入力欄で「/名前」と打つだけで保存したプロンプトを展開できる Chrome 拡張です。無料で10件まで保存でき、データはブラウザの外に出ません。</p>
+    <a class="btn" href="https://chromewebstore.google.com/detail/jlpeangipjafcdmhdlfkgjlmalmboocf" target="_blank" rel="noopener">Chrome に追加(無料)</a>
+  </div>
+  </article>
+  <footer>© 2026 プロンプトポケット ・ <a href="../privacy.html">プライバシーポリシー</a></footer>
+</div>
+</body>
+</html>

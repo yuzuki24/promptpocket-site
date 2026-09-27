@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPTに要約させるプロンプトのコツと例文10本|「長すぎる」「大事なところが抜ける」を防ぐ | プロンプトポケット</title>
+<meta name="description" content="ChatGPTで文章を要約するときに使えるプロンプトの書き方。文字数・観点・出力形式の指定方法と、会議メモ、論文、記事、メールなど用途別の例文10本を紹介します。">
+<meta name="keywords" content="
+  &lt;p&gt;「要約して」とだけ頼むと、長すぎたり、肝心の数字が抜けたり、元の文章にない話が混ざったりします。要約の品質は、プロンプトで「長さ」「残すもの」「形式」を指定できているかでほぼ決まります。この記事では、その3点の指定の仕方と、用途別の例文10本をまとめます。&lt;/p&gt;
+  &lt;div class=&quot;toc&quot;&gt;この記事の内容&lt;ol&gt;&lt;li&gt;要約プロンプトの3要素&lt;/li&gt;&lt;li&gt;用途別の例文10本&lt;/li&gt;&lt;li&gt;よくある失敗と直し方&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+  &lt;h2&gt;要約プロンプトの3要素&lt;/h2&gt;
+  &lt;h3&gt;1. 長さを数で指定する&lt;/h3&gt;
+  &lt;p&gt;「短く」ではなく「3行で」「200字以内で」「箇条書き5つで」。数で指定すると安定します。&lt;/p&gt;
+  &lt;h3&gt;2. 残すものを指定する&lt;/h3&gt;
+  &lt;p&gt;「数字、固有名詞、日付は残す」「決定事項と担当者は必ず含める」。要約で落ちて困る情報を先に宣言しておきます。&lt;/p&gt;
+  &lt;h3&gt;3. 形式を指定する&lt;/h3&gt;
+  &lt;p&gt;「箇条書き」「見出し付き」「表」など。読み手が誰かも添えると、言葉の硬さが合います(「上司に見せる」「自分用のメモ」)。&lt;/p&gt;
+
+  &lt;h2&gt;用途別の例文10本&lt;/h2&gt;
+  &lt;p&gt;&lt;code&gt;{{ }}&lt;/code&gt; の部分を差し替えて使ってください。&lt;/p&gt;
+  &lt;h3&gt;1. 何にでも使える3行要約&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の内容を3行で要約してください。重要な数字や固有名詞は残してください。
+
+---
+{{内容}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;2. 会議メモ → 決定事項&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の会議メモから、決定事項・未決事項・次のアクション(担当と期限)を抜き出して箇条書きにしてください。メモにない情報は補わないでください。
+
+---
+{{メモ}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;3. 長い記事 → 読む価値の判断&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の記事を、読む価値があるか判断するために要約してください。「主張」「根拠」「自分に関係する条件」の3項目、各1〜2文で。
+
+---
+{{記事}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;4. 論文・レポート&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の論文を要約してください。構成: 目的 / 方法 / 主な結果(数値を含む) / 限界 / 実務への示唆。各項目2文以内。
+
+---
+{{本文}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;5. メールのスレッド&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下のメールのやり取りを要約してください。「現在の状況」「相手の要望」「こちらが返すべきこと」の3点を、それぞれ1〜2文で。
+
+---
+{{メール}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;6. 上司への報告用&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の内容を、上司に口頭で30秒で報告できる形にまとめてください。結論→理由→次のアクションの順で、箇条書き3点以内。
+
+---
+{{内容}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;7. 議事録 → 欠席者向け&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の議事録を、会議に出ていない人向けに要約してください。前提知識がなくてもわかるように、専門用語には短い補足を付けてください。200字以内。
+
+---
+{{議事録}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;8. 比較しながら要約&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の2つの文章を比較し、共通点と相違点を表にまとめてください。その後、それぞれを1文で要約してください。
+
+【A】
+{{文章A}}
+
+【B】
+{{文章B}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;9. 動画の文字起こし&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下は動画の文字起こしです。話の流れに沿って見出しを付け、各見出しの下に要点を2つずつ書いてください。言い間違いや繰り返しは無視してください。
+
+---
+{{文字起こし}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;10. 自分用のメモに&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の内容を、後で自分が見返すためのメモにしてください。「一言で言うと」「覚えておくこと3つ」「次に調べること」の3項目。
+
+---
+{{内容}}&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;よくある失敗と直し方&lt;/h2&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;症状&lt;/th&gt;&lt;th&gt;原因&lt;/th&gt;&lt;th&gt;直し方&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;長すぎる&lt;/td&gt;&lt;td&gt;長さの指定がない&lt;/td&gt;&lt;td&gt;「3行で」「200字以内で」と数で指定&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;数字が消える&lt;/td&gt;&lt;td&gt;残すものの指定がない&lt;/td&gt;&lt;td&gt;「数字・固有名詞・日付は残す」を追加&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;元にない話が入る&lt;/td&gt;&lt;td&gt;補完を許している&lt;/td&gt;&lt;td&gt;「本文にない情報は補わない」を追加&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;硬すぎる / 砕けすぎる&lt;/td&gt;&lt;td&gt;読み手の指定がない&lt;/td&gt;&lt;td&gt;「上司向け」「自分用メモ」と添える&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+
+  &lt;h2&gt;例文を「毎回貼る」のをやめる&lt;/h2&gt;
+  &lt;p&gt;この10本のうち、自分がよく使う3本くらいはすぐ呼び出せるようにしておくと楽です。&lt;a href=&quot;../&quot;&gt;プロンプトポケット&lt;/a&gt; なら、保存したプロンプトを入力欄で &lt;code&gt;/sum&lt;/code&gt; のように打つだけで展開でき、&lt;code&gt;{{内容}}&lt;/code&gt; の部分はクリップボードから自動で埋めることもできます。&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../img/screenshot-2-variables.png&quot; alt=&quot;穴埋め変数のフォームとプレビュー&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-summary-prompt.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPTに要約させるプロンプトのコツと例文10本|「長すぎる」「大事なところが抜ける」を防ぐ">
+<meta property="og:description" content="ChatGPTで文章を要約するときに使えるプロンプトの書き方。文字数・観点・出力形式の指定方法と、会議メモ、論文、記事、メールなど用途別の例文10本を紹介します。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-summary-prompt.html">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="../"><span class="logo">✎</span>プロンプトポケット</a><a href="./" style="font-size:14px">記事一覧</a></header>
+  <article>
+  <h1>ChatGPTに要約させるプロンプトのコツと例文10本|「長すぎる」「大事なところが抜ける」を防ぐ</h1>
+  <div class="meta">公開日: 2026-09-28</div>
+ChatGPT 要約 プロンプト, 要約 プロンプト 例, ChatGPT 要約 コツ, 要約 AI
+  <div class="cta">
+    <h3>プロンプトの保存と呼び出しを一発にする</h3>
+    <p>プロンプトポケットは、ChatGPT・Claude・Gemini の入力欄で「/名前」と打つだけで保存したプロンプトを展開できる Chrome 拡張です。無料で10件まで保存でき、データはブラウザの外に出ません。</p>
+    <a class="btn" href="https://chromewebstore.google.com/detail/jlpeangipjafcdmhdlfkgjlmalmboocf" target="_blank" rel="noopener">Chrome に追加(無料)</a>
+  </div>
+  </article>
+  <footer>© 2026 プロンプトポケット ・ <a href="../privacy.html">プライバシーポリシー</a></footer>
+</div>
+</body>
+</html>
