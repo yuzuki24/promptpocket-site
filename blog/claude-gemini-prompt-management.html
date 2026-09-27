@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude・Gemini・ChatGPTを使い分ける人のプロンプト管理術|同じプロンプトを3つのAIで使い回す | プロンプトポケット</title>
+<meta name="description" content="ChatGPT、Claude、Geminiを併用していると、プロンプトが分散して探せなくなります。3つのAIで同じプロンプトを一元管理し、切り替えのストレスをなくす方法を解説します。">
+<meta name="keywords" content="
+  &lt;p&gt;文章はClaude、調べものはGemini、コードはChatGPT。用途でAIを使い分ける人が増えていますが、困るのがプロンプトの置き場所です。ChatGPTのカスタム指示に書いた内容はClaudeでは効かず、Claudeのプロジェクト機能はGeminiでは使えません。この記事では、3つのAIをまたいでプロンプトを一元管理する考え方と、具体的な手順をまとめます。&lt;/p&gt;
+
+  &lt;h2&gt;なぜ分散するのか&lt;/h2&gt;
+  &lt;p&gt;各AIが提供する「プロンプトを覚えさせる機能」は、そのAIの中に閉じています。&lt;/p&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;AI&lt;/th&gt;&lt;th&gt;覚えさせる機能&lt;/th&gt;&lt;th&gt;他のAIで使えるか&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;ChatGPT&lt;/td&gt;&lt;td&gt;カスタム指示、GPTs、メモリ&lt;/td&gt;&lt;td&gt;×&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Claude&lt;/td&gt;&lt;td&gt;プロジェクトの指示、スタイル&lt;/td&gt;&lt;td&gt;×&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Gemini&lt;/td&gt;&lt;td&gt;Gem、保存した情報&lt;/td&gt;&lt;td&gt;×&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;p&gt;結果として、同じ「メール書き直し」プロンプトを3か所に登録するか、どこか1か所にしかなくて他では手打ちするか、のどちらかになります。&lt;/p&gt;
+
+  &lt;h2&gt;解決の方向: AIの外側に置く&lt;/h2&gt;
+  &lt;p&gt;プロンプトをAIの中ではなく「ブラウザ側」に置けば、どのAIのページでも同じものを呼び出せます。方法は2つあります。&lt;/p&gt;
+  &lt;h3&gt;方法1: テキスト展開ツール&lt;/h3&gt;
+  &lt;p&gt;OSやブラウザ全体で動くスニペットツールです。どのサイトでも使えますが、プロンプト向けの穴埋めや、AIチャットの入力欄との相性には注意が必要です。&lt;/p&gt;
+  &lt;h3&gt;方法2: AIチャット向けのプロンプト管理拡張&lt;/h3&gt;
+  &lt;p&gt;ChatGPT・Claude・Gemini の3サイトで同じ一覧を表示し、入力欄に直接挿入する拡張です。&lt;a href=&quot;../&quot;&gt;プロンプトポケット&lt;/a&gt; はこの方式で、次のように動きます。&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;3サイトの右下に同じ ✎ ボタンが出る(Alt+Shift+P でも開く)&lt;/li&gt;
+    &lt;li&gt;入力欄で &lt;code&gt;/名前&lt;/code&gt; + スペースと打つと展開。&lt;code&gt;//&lt;/code&gt; で一覧を開き、↑↓ と Enter で挿入&lt;/li&gt;
+    &lt;li&gt;フォルダ・お気に入り・検索で、増えても探せる&lt;/li&gt;
+    &lt;li&gt;保存先はブラウザ内のみ。会社の情報を含むプロンプトも外部に出ない&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;img src=&quot;../img/screenshot-5-dark.png&quot; alt=&quot;ダークモードのGemini上で開いたプロンプト一覧&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+
+  &lt;h2&gt;運用のコツ&lt;/h2&gt;
+  &lt;h3&gt;1. プロンプトは「AI非依存」に書く&lt;/h3&gt;
+  &lt;p&gt;「あなたはGPT-4です」のようなモデル名を入れず、「以下の文章を〜してください」と指示だけを書くと、どのAIでも同じように動きます。&lt;/p&gt;
+  &lt;h3&gt;2. 穴埋めは変数にする&lt;/h3&gt;
+  &lt;p&gt;本文だけ毎回変わる部分を &lt;code&gt;{{文章}}&lt;/code&gt; のように変数にしておくと、コピペ後に該当箇所を探して消す手間がなくなります。&lt;/p&gt;
+  &lt;h3&gt;3. フォルダは「用途」で切る&lt;/h3&gt;
+  &lt;p&gt;「ChatGPT用」「Claude用」ではなく「メール」「要約」「コード」のように用途で分けます。AIをまたいで使うのが前提だからです。&lt;/p&gt;
+  &lt;h3&gt;4. 使用回数で並べる&lt;/h3&gt;
+  &lt;p&gt;よく使う順に並ぶ設定にしておくと、上位5本を覚えるだけで日常の8割が回ります。&lt;/p&gt;
+
+  &lt;h2&gt;まとめ&lt;/h2&gt;
+  &lt;p&gt;複数のAIを使う人ほど、プロンプトはAIの外側で一元管理した方が楽です。まずはよく使う10本を「AI非依存・穴埋め変数つき」の形で書き直すところから始めてみてください。&lt;/p&gt;
+">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/blog/claude-gemini-prompt-management.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude・Gemini・ChatGPTを使い分ける人のプロンプト管理術|同じプロンプトを3つのAIで使い回す">
+<meta property="og:description" content="ChatGPT、Claude、Geminiを併用していると、プロンプトが分散して探せなくなります。3つのAIで同じプロンプトを一元管理し、切り替えのストレスをなくす方法を解説します。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/blog/claude-gemini-prompt-management.html">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":&#x27;Claude・Gemini・ChatGPTを使い分ける人のプロンプト管理術|同じプロンプトを3つのAIで使い回す&#x27;,"datePublished":"2026-09-27","author":{"@type":"Organization","name":"プロンプトポケット"},"publisher":{"@type":"Organization","name":"プロンプトポケット"}}</script>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="../"><span class="logo">✎</span>プロンプトポケット</a><a href="./" style="font-size:14px">記事一覧</a></header>
+  <article>
+  <h1>Claude・Gemini・ChatGPTを使い分ける人のプロンプト管理術|同じプロンプトを3つのAIで使い回す</h1>
+  <div class="meta">公開日: 2026-09-27</div>
+Claude プロンプト 保存, Gemini プロンプト 保存, AI 使い分け, プロンプト 一元管理
+  <div class="cta">
+    <h3>プロンプトの保存と呼び出しを一発にする</h3>
+    <p>プロンプトポケットは、ChatGPT・Claude・Gemini の入力欄で「/名前」と打つだけで保存したプロンプトを展開できる Chrome 拡張です。無料で10件まで保存でき、データはブラウザの外に出ません。</p>
+    <a class="btn" href="https://chromewebstore.google.com/detail/jlpeangipjafcdmhdlfkgjlmalmboocf" target="_blank" rel="noopener">Chrome に追加(無料)</a>
+  </div>
+  </article>
+  <footer>© 2026 プロンプトポケット ・ <a href="../privacy.html">プライバシーポリシー</a></footer>
+</div>
+</body>
+</html>

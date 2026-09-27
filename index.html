@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>プロンプトポケット | ChatGPT・Claude・Gemini のプロンプトを保存して一発で呼び出す</title>
 <meta name="description" content="プロンプトポケットは、ChatGPT・Claude・Gemini で使うプロンプトを保存し、ワンクリックや /ショートカットで入力欄に呼び出せる Chrome 拡張機能です。">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="プロンプトポケット | ChatGPT・Claude・Gemini のプロンプトを保存して一発で呼び出す">
+<meta property="og:description" content="入力欄で /mail と打つだけで保存したプロンプトを展開。穴埋め変数、日本語テンプレート26種、右クリック保存。データは外部に送信しません。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/icon128.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"プロンプトポケット","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","offers":[{"@type":"Offer","price":"0","priceCurrency":"JPY"},{"@type":"Offer","price":"980","priceCurrency":"JPY","name":"Pro版(買い切り)"}],"url":"https://yuzuki24.github.io/promptpocket-site/","description":"ChatGPT・Claude・Gemini のプロンプトを保存し、/ショートカットやワンクリックで入力欄に呼び出せる Chrome 拡張機能。"}</script>
 <style>
   :root { --bg:#fbfbfe; --card:#fff; --fg:#171826; --fg2:#5b5e73; --line:#e6e7ef; --accent:#6d4cff; --accent2:#5b3be0; --soft:#efeaff; }
   @media (prefers-color-scheme: dark) { :root { --bg:#101117; --card:#16171e; --fg:#ecedf5; --fg2:#a6a9bf; --line:#2a2b38; --accent:#8b6dff; --accent2:#9d84ff; --soft:#2c2452; } }
@@ -50,7 +60,7 @@
 <div class="wrap">
   <header>
     <a class="brand" href="./"><span class="logo">✎</span>プロンプトポケット</a>
-    <nav><a href="#features">機能</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a><a href="privacy.html">プライバシー</a></nav>
+    <nav><a href="#features">機能</a><a href="#pricing">料金</a><a href="#faq">よくある質問</a><a href="blog/">記事</a><a href="privacy.html">プライバシー</a></nav>
   </header>
 
   <section class="hero">
@@ -60,6 +70,7 @@
     <a class="btn ghost" href="#pricing">料金を見る</a>
     <div class="note">Chrome ウェブストアで審査中です。公開後にこのボタンからインストールできます。</div>
 
+    <div style="margin:32px auto 0;max-width:760px"><img src="img/demo.gif" alt="入力欄で /mail と打つとプロンプトが展開されるデモ" style="width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 12px 40px rgba(40,30,120,.12)" loading="lazy"></div>
     <div class="demo" aria-label="使い方の例">
       <div class="line"><kbd>/mail</kbd><span>→ 「以下の文章を、社外向けの丁寧なビジネスメールに書き直してください…」が即座に展開</span></div>
       <div class="line"><kbd>//</kbd><span>→ 入力欄からプロンプト一覧を開く。↑↓ と Enter だけで挿入</span></div>
@@ -103,6 +114,16 @@
         </ul>
         <p style="font-size:13px;color:var(--fg2);margin:14px 0 0">拡張の設定画面から購入できます。決済は ExtensionPay(Stripe)で処理され、カード情報が当方に渡ることはありません。</p>
       </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>記事</h2>
+    <p class="sub">プロンプトの保存・活用に関する読みもの</p>
+    <div class="grid">
+      <a class="card" href="blog/chatgpt-prompt-save.html" style="text-decoration:none"><h3>ChatGPTのプロンプトを保存・管理する方法5選</h3><p>メモ、カスタム指示、GPTs、スニペット、拡張を比較。</p></a>
+      <a class="card" href="blog/prompt-templates-business.html" style="text-decoration:none"><h3>仕事で使えるプロンプトテンプレート20選</h3><p>メール・議事録・要約・企画・コード。コピペ可。</p></a>
+      <a class="card" href="blog/claude-gemini-prompt-management.html" style="text-decoration:none"><h3>Claude・Gemini・ChatGPTを使い分ける人のプロンプト管理術</h3><p>3つのAIで同じプロンプトを使い回す。</p></a>
     </div>
   </section>
 

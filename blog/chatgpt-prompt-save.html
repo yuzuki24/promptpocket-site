@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPTのプロンプトを保存・管理する方法5選(2026年版)|コピペ地獄から抜け出す | プロンプトポケット</title>
+<meta name="description" content="ChatGPTでよく使うプロンプトを保存して素早く呼び出す5つの方法を比較。メモアプリ、カスタム指示、GPTs、テキスト展開ツール、Chrome拡張のメリットと限界を解説します。">
+<meta name="keywords" content="
+  &lt;p&gt;ChatGPTを仕事で使っていると、「以下の文章を丁寧なビジネスメールに書き直して」「3行で要約して」のような同じ指示を何度も打つことになります。この記事では、プロンプトを保存して素早く呼び出す方法を5つ比較し、それぞれの向き不向きを整理します。&lt;/p&gt;
+  &lt;div class=&quot;toc&quot;&gt;この記事の内容&lt;ol&gt;&lt;li&gt;メモアプリに貼っておく&lt;/li&gt;&lt;li&gt;ChatGPTのカスタム指示を使う&lt;/li&gt;&lt;li&gt;GPTs(マイGPT)を作る&lt;/li&gt;&lt;li&gt;テキスト展開ツール(スニペット)を使う&lt;/li&gt;&lt;li&gt;プロンプト管理のChrome拡張を使う&lt;/li&gt;&lt;li&gt;結局どれがいいか&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+  &lt;h2&gt;1. メモアプリに貼っておく&lt;/h2&gt;
+  &lt;p&gt;一番多いのがこの方法です。Apple メモ、Notion、Google Keep などにプロンプトを並べておき、必要なときにコピーして貼り付けます。&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;良い点:&lt;/b&gt; 準備がいらない。どの端末でも見られる。&lt;br&gt;&lt;b&gt;限界:&lt;/b&gt; 「メモを開く → 探す → コピー → ChatGPTに戻る → 貼り付け」で毎回20秒前後かかります。1日10回使えば3分以上。件数が増えると探す時間も伸びます。&lt;/p&gt;
+
+  &lt;h2&gt;2. ChatGPTのカスタム指示を使う&lt;/h2&gt;
+  &lt;p&gt;設定の「カスタム指示」に「回答は日本語で、箇条書きで」のような前提を書いておくと、全チャットに自動で適用されます。&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;良い点:&lt;/b&gt; 毎回書かなくて済む。&lt;br&gt;&lt;b&gt;限界:&lt;/b&gt; 全チャット共通の1本しか持てません。「メール用」「コードレビュー用」のように用途で切り替えることはできず、ClaudeやGeminiには効きません。&lt;/p&gt;
+
+  &lt;h2&gt;3. GPTs(マイGPT)を作る&lt;/h2&gt;
+  &lt;p&gt;用途ごとに専用のGPTを作り、システムプロンプトにあらかじめ指示を入れておく方法です。&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;良い点:&lt;/b&gt; 用途ごとに切り替えられる。他人と共有できる。&lt;br&gt;&lt;b&gt;限界:&lt;/b&gt; 有料プランが必要です。GPTを切り替えるたびに新しいチャットになるため、1つの会話の中で「ここはメール文に」「ここは要約で」と使い分けるのには向きません。ChatGPT専用でもあります。&lt;/p&gt;
+
+  &lt;h2&gt;4. テキスト展開ツール(スニペット)を使う&lt;/h2&gt;
+  &lt;p&gt;「;mail」と打つと定型文に置き換わる、Text Blaze や macOS のテキスト置換のようなツールです。&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;良い点:&lt;/b&gt; どのアプリでも使える。速い。&lt;br&gt;&lt;b&gt;限界:&lt;/b&gt; 汎用ツールなので、プロンプト特有の「穴埋め」(本文だけ差し替えたい)や、ChatGPTの入力欄(リッチテキスト)との相性に難があることがあります。日本語IMEとの干渉も起きがちです。&lt;/p&gt;
+
+  &lt;h2&gt;5. プロンプト管理のChrome拡張を使う&lt;/h2&gt;
+  &lt;p&gt;ChatGPTのページ上にプロンプト一覧を出し、クリックやショートカットで入力欄に挿入する方法です。プロンプト専用に作られているので、穴埋め変数やフォルダ分けなど、上の4つでは足りない部分を補えます。&lt;/p&gt;
+  &lt;p&gt;たとえば &lt;a href=&quot;../&quot;&gt;プロンプトポケット&lt;/a&gt; の場合:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;入力欄で &lt;code&gt;/mail&lt;/code&gt; + スペースと打つと、保存した本文に置き換わる&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;{{文章}}&lt;/code&gt; のような穴埋め変数。挿入前にフォームが出て、完成形をプレビューできる&lt;/li&gt;
+    &lt;li&gt;ChatGPT・Claude・Gemini で同じ一覧が使える&lt;/li&gt;
+    &lt;li&gt;データはブラウザ内だけに保存され、外部に送られない&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;img src=&quot;../img/screenshot-1-list.png&quot; alt=&quot;ChatGPTのページ上に表示されたプロンプト一覧&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;限界:&lt;/b&gt; Chrome(Chromium系ブラウザ)専用です。スマホアプリでは使えません。&lt;/p&gt;
+
+  &lt;h2&gt;結局どれがいいか&lt;/h2&gt;
+  &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;方法&lt;/th&gt;&lt;th&gt;速さ&lt;/th&gt;&lt;th&gt;用途の切替&lt;/th&gt;&lt;th&gt;Claude/Gemini&lt;/th&gt;&lt;th&gt;費用&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;メモアプリ&lt;/td&gt;&lt;td&gt;遅い&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;無料&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;カスタム指示&lt;/td&gt;&lt;td&gt;速い&lt;/td&gt;&lt;td&gt;×(1本のみ)&lt;/td&gt;&lt;td&gt;×&lt;/td&gt;&lt;td&gt;無料&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;GPTs&lt;/td&gt;&lt;td&gt;普通&lt;/td&gt;&lt;td&gt;○(チャット単位)&lt;/td&gt;&lt;td&gt;×&lt;/td&gt;&lt;td&gt;有料プラン&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;テキスト展開ツール&lt;/td&gt;&lt;td&gt;速い&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;無料〜有料&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;プロンプト管理拡張&lt;/td&gt;&lt;td&gt;速い&lt;/td&gt;&lt;td&gt;○(文単位)&lt;/td&gt;&lt;td&gt;○&lt;/td&gt;&lt;td&gt;無料〜買い切り&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;p&gt;プロンプトが5本以下なら「カスタム指示」+「メモアプリ」で十分です。10本を超え、1日に何度も切り替えるなら、専用の拡張を入れた方が結果的に時間を取り戻せます。&lt;/p&gt;
+">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-prompt-save.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPTのプロンプトを保存・管理する方法5選(2026年版)|コピペ地獄から抜け出す">
+<meta property="og:description" content="ChatGPTでよく使うプロンプトを保存して素早く呼び出す5つの方法を比較。メモアプリ、カスタム指示、GPTs、テキスト展開ツール、Chrome拡張のメリットと限界を解説します。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/blog/chatgpt-prompt-save.html">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":&#x27;ChatGPTのプロンプトを保存・管理する方法5選(2026年版)|コピペ地獄から抜け出す&#x27;,"datePublished":"2026-09-27","author":{"@type":"Organization","name":"プロンプトポケット"},"publisher":{"@type":"Organization","name":"プロンプトポケット"}}</script>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="../"><span class="logo">✎</span>プロンプトポケット</a><a href="./" style="font-size:14px">記事一覧</a></header>
+  <article>
+  <h1>ChatGPTのプロンプトを保存・管理する方法5選(2026年版)|コピペ地獄から抜け出す</h1>
+  <div class="meta">公開日: 2026-09-27</div>
+ChatGPT プロンプト 保存, プロンプト 管理, プロンプト 呼び出し, ChatGPT 定型文
+  <div class="cta">
+    <h3>プロンプトの保存と呼び出しを一発にする</h3>
+    <p>プロンプトポケットは、ChatGPT・Claude・Gemini の入力欄で「/名前」と打つだけで保存したプロンプトを展開できる Chrome 拡張です。無料で10件まで保存でき、データはブラウザの外に出ません。</p>
+    <a class="btn" href="https://chromewebstore.google.com/detail/jlpeangipjafcdmhdlfkgjlmalmboocf" target="_blank" rel="noopener">Chrome に追加(無料)</a>
+  </div>
+  </article>
+  <footer>© 2026 プロンプトポケット ・ <a href="../privacy.html">プライバシーポリシー</a></footer>
+</div>
+</body>
+</html>

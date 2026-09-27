@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【コピペ可】仕事で使えるChatGPTプロンプトテンプレート20選(メール・議事録・要約・コード) | プロンプトポケット</title>
+<meta name="description" content="ビジネスメール、議事録、要約、企画、プログラミングまで、そのまま使えるChatGPTプロンプトのテンプレート20本。穴埋め式なので貼り替えるだけで使えます。Claude・Geminiでも同じように使えます。">
+<meta name="keywords" content="
+  &lt;p&gt;「AIに何と頼めばいいか」で毎回悩む時間はもったいないので、仕事でよく使うプロンプトを20本まとめました。&lt;code&gt;{{ }}&lt;/code&gt; の部分を自分の内容に差し替えるだけで使えます。ChatGPT だけでなく Claude や Gemini でもそのまま動きます。&lt;/p&gt;
+  &lt;div class=&quot;toc&quot;&gt;カテゴリ&lt;ol&gt;&lt;li&gt;メール・連絡(5本)&lt;/li&gt;&lt;li&gt;議事録・報告(4本)&lt;/li&gt;&lt;li&gt;要約・読解(3本)&lt;/li&gt;&lt;li&gt;企画・アイデア(4本)&lt;/li&gt;&lt;li&gt;プログラミング(4本)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+  &lt;h2&gt;メール・連絡&lt;/h2&gt;
+  &lt;h3&gt;1. 丁寧なビジネスメールに書き直す&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の文章を、社外向けの丁寧なビジネスメールに書き直してください。件名も提案してください。
+
+---
+{{文章}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;2. 角を立てずに断る&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;次の依頼を角が立たないように丁寧に断るメールを書いてください。代替案を1つ添えてください。
+
+依頼内容: {{依頼内容}}
+断る理由: {{理由}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;3. 催促メール(1回目)&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の件について、相手を責めない柔らかい表現で進捗を確認するメールを書いてください。返信期限は{{期限}}としてください。
+
+件名: {{件名}}
+依頼した日: {{日付}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;4. Slack向けに短く&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の文章を、Slackに投稿する形に短く書き直してください。結論を先頭に、絵文字は使わず、5行以内で。
+
+---
+{{文章}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;5. お礼メール&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;{{相手}}に、{{内容}}についてのお礼メールを書いてください。定型的すぎない、具体的なエピソードを1つ入れた文面にしてください。&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;議事録・報告&lt;/h2&gt;
+  &lt;h3&gt;6. メモを議事録に整形&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下のメモを議事録として整形してください。
+構成: 1) 決定事項 2) 未決事項と担当者 3) 次回までのTODO(期限付き)
+
+---
+{{メモ}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;7. 上司への30秒報告&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の内容を、上司に口頭で30秒で報告できる形にまとめてください。結論→理由→次のアクションの順で、箇条書き3点以内。
+
+---
+{{内容}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;8. 週報&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の作業ログから週報を作ってください。構成は「今週やったこと」「成果・数字」「来週の予定」「相談したいこと」。各項目3行以内。
+
+---
+{{作業ログ}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;9. トラブル報告&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;次の事象について、関係者向けのトラブル報告を書いてください。構成: 発生日時 / 影響範囲 / 原因(判明している範囲) / 暫定対応 / 恒久対応と期限。推測は「推測」と明記してください。
+
+---
+{{事象}}&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;要約・読解&lt;/h2&gt;
+  &lt;h3&gt;10. 3行要約&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の内容を3行で要約してください。重要な数字や固有名詞は残してください。
+
+---
+{{内容}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;11. 小学生にもわかるように&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の文章を、小学5年生にもわかるように、専門用語を使わずに説明し直してください。
+
+---
+{{文章}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;12. 用語集を作る&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の文章に出てくる専門用語を抜き出し、それぞれ1〜2文で説明した用語集を作ってください。
+
+---
+{{文章}}&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;企画・アイデア&lt;/h2&gt;
+  &lt;h3&gt;13. 提案書の骨子&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;「{{テーマ}}」について、社内向け提案書の骨子を作ってください。
+構成: 背景と課題 / 提案内容 / 期待効果(定量・定性) / 必要リソース / スケジュール / リスクと対策&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;14. アイデアの壁打ち&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;次のアイデアについて、批判的な投資家の視点で質問を5つしてください。私が答えたら、答えを踏まえてアイデアを改善する提案をしてください。
+
+アイデア: {{アイデア}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;15. キャッチコピー10案&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;「{{商品・サービス}}」のキャッチコピーを10案出してください。ベネフィット訴求5案、感情訴求5案に分け、それぞれ20字以内で。
+
+特徴: {{特徴}}&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;16. ペルソナ作成&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;「{{商品・サービス}}」のターゲット顧客のペルソナを2人作ってください。年齢、職業、悩み、情報収集の方法、購入の決め手を具体的に。&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;プログラミング&lt;/h2&gt;
+  &lt;h3&gt;17. コードレビュー&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の{{言語}}コードをレビューしてください。バグ、パフォーマンス、可読性の観点で指摘し、修正案を示してください。
+
+```
+{{コード}}
+```&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;18. エラーの原因と直し方&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;次のエラーが出ています。考えられる原因を可能性の高い順に3つ挙げ、それぞれの確認方法と修正方法を示してください。
+
+環境: {{環境}}
+エラー:
+```
+{{エラー}}
+```&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;19. テストコードを書く&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;以下の関数に対するテストコードを{{テストフレームワーク}}で書いてください。正常系、境界値、異常系を含めてください。
+
+```
+{{コード}}
+```&lt;/code&gt;&lt;/pre&gt;
+  &lt;h3&gt;20. 正規表現を作る&lt;/h3&gt;
+  &lt;pre&gt;&lt;code&gt;次の条件に合う正規表現を作ってください。マッチする例とマッチしない例を3つずつ示し、各部分の意味を説明してください。
+
+条件: {{条件}}
+言語: {{言語}}&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;h2&gt;テンプレートを「毎回貼る」のをやめる&lt;/h2&gt;
+  &lt;p&gt;この20本をメモに保存しておいても、使うたびにコピペするのは手間です。&lt;a href=&quot;../&quot;&gt;プロンプトポケット&lt;/a&gt; にはこの記事のテンプレートがすべてギャラリーとして同梱されており、ワンクリックで自分の一覧に追加できます。追加後は入力欄で &lt;code&gt;/mail&lt;/code&gt; のように打つだけで展開され、&lt;code&gt;{{文章}}&lt;/code&gt; の部分はフォームで穴埋めできます。&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../img/screenshot-2-variables.png&quot; alt=&quot;穴埋め変数のフォームとプレビュー&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+">
+<link rel="canonical" href="https://yuzuki24.github.io/promptpocket-site/blog/prompt-templates-business.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【コピペ可】仕事で使えるChatGPTプロンプトテンプレート20選(メール・議事録・要約・コード)">
+<meta property="og:description" content="ビジネスメール、議事録、要約、企画、プログラミングまで、そのまま使えるChatGPTプロンプトのテンプレート20本。穴埋め式なので貼り替えるだけで使えます。Claude・Geminiでも同じように使えます。">
+<meta property="og:url" content="https://yuzuki24.github.io/promptpocket-site/blog/prompt-templates-business.html">
+<meta property="og:image" content="https://yuzuki24.github.io/promptpocket-site/img/ogp.png">
+<meta property="og:site_name" content="プロンプトポケット">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":&#x27;【コピペ可】仕事で使えるChatGPTプロンプトテンプレート20選(メール・議事録・要約・コード)&#x27;,"datePublished":"2026-09-27","author":{"@type":"Organization","name":"プロンプトポケット"},"publisher":{"@type":"Organization","name":"プロンプトポケット"}}</script>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="../"><span class="logo">✎</span>プロンプトポケット</a><a href="./" style="font-size:14px">記事一覧</a></header>
+  <article>
+  <h1>【コピペ可】仕事で使えるChatGPTプロンプトテンプレート20選(メール・議事録・要約・コード)</h1>
+  <div class="meta">公開日: 2026-09-27</div>
+ChatGPT プロンプト テンプレート, プロンプト 例文, ビジネス プロンプト, 議事録 プロンプト, 要約 プロンプト
+  <div class="cta">
+    <h3>プロンプトの保存と呼び出しを一発にする</h3>
+    <p>プロンプトポケットは、ChatGPT・Claude・Gemini の入力欄で「/名前」と打つだけで保存したプロンプトを展開できる Chrome 拡張です。無料で10件まで保存でき、データはブラウザの外に出ません。</p>
+    <a class="btn" href="https://chromewebstore.google.com/detail/jlpeangipjafcdmhdlfkgjlmalmboocf" target="_blank" rel="noopener">Chrome に追加(無料)</a>
+  </div>
+  </article>
+  <footer>© 2026 プロンプトポケット ・ <a href="../privacy.html">プライバシーポリシー</a></footer>
+</div>
+</body>
+</html>

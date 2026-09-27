@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yuzuki24.github.io/promptpocket-site/sitemap.xml
